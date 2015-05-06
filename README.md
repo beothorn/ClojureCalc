@@ -7,8 +7,8 @@ To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/release
 Usage  
 ====================
 
-=clj( string with a clojure expression )
-=cljcol( cell range to convert to a clojure collection )
+=clj( string with a clojure expression )  
+=cljcol( cell range to convert to a clojure collection )  
 
 ![screenshot](http://i.imgur.com/ydWloye.png "Example")
 
