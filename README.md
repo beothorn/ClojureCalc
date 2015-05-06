@@ -2,11 +2,14 @@ ClojureCalc
 ====================
 ClojureCalc is a wrapper for clojure on libre office and possibly open office.  
 It's highly experimental.  
-To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/releases/download/0.0.1/ClojureCalc.oxt)  
+To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/releases/download/0.1.0/ClojureCalc.oxt)  
 
 Usage  
 ====================
-Here's a screenshot to prove it works on my machine :)  
+
+=clj( string with a clojure expression )
+=cljcol( cell range to convert to a clojure collection )
+
 ![screenshot](http://i.imgur.com/ydWloye.png "Example")
 
 Examples  
