@@ -1,8 +1,5 @@
 package com.github.beothorn.clojurecalc;
 
-import clojure.java.api.Clojure;
-import clojure.lang.IFn;
-import clojure.lang.LazySeq;
 import com.sun.star.lang.XLocalizable;
 import com.sun.star.lang.XServiceInfo;
 import com.sun.star.lang.XSingleComponentFactory;
@@ -11,7 +8,6 @@ import com.sun.star.lib.uno.helper.WeakBase;
 import com.sun.star.registry.XRegistryKey;
 import com.sun.star.uno.XComponentContext;
 import com.sun.star.table.XCellRange;
-import java.util.Iterator;
 
 public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocalizable, XClojureCalc{
     
@@ -80,23 +76,7 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
     
    public String clj(String exp)
    {
-        String result;
-        ClassLoader previous = Thread.currentThread().getContextClassLoader();
-        final ClassLoader parentClassLoader = ClojureCalcImpl.class.getClassLoader();
-        Thread.currentThread().setContextClassLoader(parentClassLoader);
-        try {
-            IFn eval = Clojure.var("clojure.core", "load-string");
-            IFn str = Clojure.var("clojure.core", "str");
-            IFn apply = Clojure.var("clojure.core", "apply");
-            Object evalResult = eval.invoke(exp);
-            result = apply.invoke(str, evalResult).toString();
-        }catch(Exception e){  
-            result = e.getMessage();
-        } finally {
-            Thread.currentThread().setContextClassLoader(previous);
-        }
-       
-        return result;
+       return ClojureInterpreter.runClojure(exp);
    }
    
    public String clcol(XCellRange cells){
