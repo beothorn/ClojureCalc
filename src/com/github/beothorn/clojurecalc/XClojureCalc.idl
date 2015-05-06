@@ -1,0 +1,29 @@
+/*
+ * XClojureCalc.idl
+ *
+ * Created on 2015.05.05 - 23:53:58
+ *
+ */
+
+#ifndef _com_github_beothorn_clojurecalc_XClojureCalc_
+#define _com_github_beothorn_clojurecalc_XClojureCalc_
+
+#include <com/sun/star/lang/XLocalizable.idl>
+
+#include <com/sun/star/uno/XInterface.idl>
+
+#include <com/sun/star/table/XCellRange.idl>
+
+
+module com { module github { module beothorn { module clojurecalc {
+    interface XClojureCalc {
+        /// used to set an add-in locale for formatting reasons for example
+        [optional] interface ::com::sun::star::lang::XLocalizable;
+
+        string clj([in] string exp);
+
+        //string clcol([in] com::sun::star::table::XCellRange cells);
+    };
+}; }; }; };
+
+#endif

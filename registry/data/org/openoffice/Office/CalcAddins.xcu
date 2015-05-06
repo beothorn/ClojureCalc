@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" oor:name="CalcAddIns" oor:package="org.openoffice.Office">
+    <node oor:name="AddInInfo">
+        <node oor:name="com.github.beothorn.clojurecalc.ClojureCalc" oor:op="replace">
+            <node oor:name="AddInFunctions">
+                <node oor:name="clj" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">clj</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        Evaluates a clojure expression
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="exp" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">A clojure expression to be evaluated</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="clcol" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">clcol</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        Return a cell
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="cells" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells to show up on collection</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>
