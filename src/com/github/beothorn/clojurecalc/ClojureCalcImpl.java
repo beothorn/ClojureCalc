@@ -11,6 +11,7 @@ import com.sun.star.lib.uno.helper.WeakBase;
 import com.sun.star.registry.XRegistryKey;
 import com.sun.star.uno.XComponentContext;
 import com.sun.star.table.XCellRange;
+import java.util.Iterator;
 
 public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocalizable, XClojureCalc{
     
@@ -85,8 +86,10 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
         Thread.currentThread().setContextClassLoader(parentClassLoader);
         try {
             IFn eval = Clojure.var("clojure.core", "load-string");
-            Object invoke = eval.invoke(exp);
-            result = invoke.toString();
+            IFn str = Clojure.var("clojure.core", "str");
+            IFn apply = Clojure.var("clojure.core", "apply");
+            Object evalResult = eval.invoke(exp);
+            result = apply.invoke(str, evalResult).toString();
         }catch(Exception e){  
             result = e.getMessage();
         } finally {
