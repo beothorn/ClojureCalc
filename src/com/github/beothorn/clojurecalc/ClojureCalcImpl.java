@@ -79,7 +79,7 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
        return ClojureInterpreter.runClojure(exp);
    }
    
-   public String clcol(XCellRange cells){
-       return "On compile XCellRange on idl gives some error, will investigate";
+   public String cljcol(String[][] cells){
+       return ClojureInterpreter.toClojureCollection(cells);
    }
 }

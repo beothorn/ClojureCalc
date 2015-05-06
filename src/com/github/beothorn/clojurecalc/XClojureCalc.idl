@@ -22,7 +22,7 @@ module com { module github { module beothorn { module clojurecalc {
 
         string clj([in] string exp);
 
-        //string clcol([in] com::sun::star::table::XCellRange cells);
+        string cljcol([in] sequence< sequence< string > > cells);
     };
 }; }; }; };
 

@@ -6,6 +6,32 @@ import clojure.lang.LazySeq;
 import java.util.Iterator;
 
 public class ClojureInterpreter {
+    
+    public static String toClojureCollection(String[][] javaMatrix){
+        
+        if(javaMatrix.length <= 1){            
+            return getLine(javaMatrix[0]);
+        }else{
+            String result = "[";
+            for (int i = 0; i < javaMatrix.length; i++) {
+                result += getLine(javaMatrix[i])+" ";
+            }
+            result = result.substring(0, result.length() - 1);
+            result += "]";
+            return result;
+        }
+    }
+
+    private static String getLine(final String[] line) {
+        String result = "[";
+        for (int i = 0; i < line.length; i++) {
+            result += line[i]+" ";
+        }
+        result = result.substring(0, result.length() - 1);
+        result += "]";
+        return result;
+    }
+    
     public static String runClojure(String exp){
         if(exp.equals("")) return "";
         String result;

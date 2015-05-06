@@ -29,12 +29,12 @@
                         </node>
                     </node>
                 </node>
-                <node oor:name="clcol" oor:op="replace">
+                <node oor:name="cljcol" oor:op="replace">
                     <prop oor:name="DisplayName">
-                        <value xml:lang="en">clcol</value>
+                        <value xml:lang="en">cljcol</value>
                     </prop>
                     <prop oor:name="Description">
-                        Return a cell
+                        Convert cells into a Clojure collection
                         <value/>
                     </prop>
                     <prop oor:name="Category">
