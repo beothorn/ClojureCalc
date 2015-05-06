@@ -12,17 +12,23 @@ Here's a screenshot to prove it works on my machine :)
 Examples  
 ====================
 
-fibonacci  
+defining functions
+<pre><code>
+A1 is #(* % 2)
+=clj("(map "&A1&" [1 2 3])")
+</code></pre>
+
+fibonacci
 <pre><code>
 =clj("(def fib-seq ((fn rfib [a b] (lazy-seq (cons a (rfib b (+ a b))))) 0 1)) (take 20 fib-seq)")  
 </code></pre>
 
-sum of two cells  
+sum of two cells
 <pre><code>
 =clj("[(+ "&A1&" "&B1&")]")  
 </code></pre>
 
-escaping double quotes  
+escaping double quotes
 <pre><code>
 =clj("(str "&CHAR(34)&"foo"&CHAR(34)&")")
 </code></pre>
