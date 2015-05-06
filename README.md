@@ -1,6 +1,6 @@
 ClojureCalc
 ====================
-ClojureCalc is a wrapper for clojure for libre office and possibly open office.  
+ClojureCalc is a wrapper for clojure on libre office and possibly open office.  
 It's highly experimental.  
 To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/releases/download/0.0.1/ClojureCalc.oxt)  
 
