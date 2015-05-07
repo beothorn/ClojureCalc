@@ -7,7 +7,6 @@ import com.sun.star.lib.uno.helper.Factory;
 import com.sun.star.lib.uno.helper.WeakBase;
 import com.sun.star.registry.XRegistryKey;
 import com.sun.star.uno.XComponentContext;
-import com.sun.star.table.XCellRange;
 
 public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocalizable, XClojureCalc{
     

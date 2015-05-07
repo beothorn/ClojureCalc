@@ -2,13 +2,15 @@ ClojureCalc
 ====================
 ClojureCalc is a wrapper for clojure on libre office and possibly open office.  
 It's highly experimental.  
-To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/releases/download/0.1.0/ClojureCalc.oxt)  
+To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/releases/download/1.0.0/ClojureCalc.oxt)  
 
 Usage  
 ====================
 
 =clj( string with a clojure expression )  
 =cljcol( cell range to convert to a clojure collection )  
+
+Note: Three single quotes are replaced by a double quote
 
 ![screenshot](http://i.imgur.com/ydWloye.png "Example")
 
@@ -33,6 +35,6 @@ sum of two cells
 
 escaping double quotes
 <pre><code>
-=clj("(str "&CHAR(34)&"foo"&CHAR(34)&")")
+=clj("(str '''foo''')")
 </code></pre>
 

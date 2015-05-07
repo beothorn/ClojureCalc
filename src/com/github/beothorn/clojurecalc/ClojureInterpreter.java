@@ -32,8 +32,9 @@ public class ClojureInterpreter {
         return result;
     }
     
-    public static String runClojure(String exp){
-        if(exp.equals("")) return "";
+    public static String runClojure(String clojureExpression){
+        if(clojureExpression.equals("")) return "";
+        String exp = clojureExpression.replaceAll("'''", "\"");
         String result;
         ClassLoader previous = Thread.currentThread().getContextClassLoader();
         final ClassLoader parentClassLoader = ClojureCalcImpl.class.getClassLoader();

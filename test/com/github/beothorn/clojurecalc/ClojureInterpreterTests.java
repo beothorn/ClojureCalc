@@ -10,6 +10,7 @@ public class ClojureInterpreterTests extends TestCase{
         runAndAssert("(+ 1 2)", "3");
         runAndAssert("(map #(* % 2) [1 2 3])", "[2 4 6]");
         runAndAssert("[ [ 2 4 6 ] ]", "[[2 4 6]]");
+        runAndAssert("(str '''foo''')", "foo");
     }    
     
     public void testCellsToMatrix(){

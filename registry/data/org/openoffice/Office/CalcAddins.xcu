@@ -21,7 +21,7 @@
                     <node oor:name="Parameters">
                         <node oor:name="exp" oor:op="replace">
                             <prop oor:name="DisplayName">
-                                <value xml:lang="en">A clojure expression to be evaluated</value>
+                                <value xml:lang="en">A clojure expression to be evaluated, ''' (three single quotes) are replaced by a double quote </value>
                             </prop>
                             <prop oor:name="Description">
                                 <value/>
