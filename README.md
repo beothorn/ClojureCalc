@@ -14,7 +14,7 @@ Usage
 
 Note: Three single quotes are replaced by a double quote
 
-![screenshot](http://i.imgur.com/eBgiT6L.png "Example")
+![screenshot](http://i.imgur.com/93UZ7qq.png "Really cool example")
 
 Examples  
 ====================
