@@ -43,7 +43,7 @@ escaping double quotes
 
 Common issues
 ---------------------
-On installation you may get an error  
+On installation you may get an error:  
 *Extension Installation Could not create Java Implementation Loader*  
 This can happen when libre office is using a JDK instead of a JRE or if your Java installation has problems.  
 To fix this change the jvm to be used by libre office on __Tools>Options>Advanced__  
