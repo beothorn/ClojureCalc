@@ -41,3 +41,9 @@ escaping double quotes
 =clj("(str '''foo''')")
 </code></pre>
 
+Common issues
+---------------------
+On installation you may get an error *Extension Installation Could not create Java Implementation Loader* . This can happen when libre office is using a JDK instead of a JRE or if your Java installation has problems.
+To fix this change the jvm to be used by libre office on __Tools>Options>Advnaced__  
+More about this error on:  
+http://ask.libreoffice.org/en/question/5712/extension-installation-could-not-create-java-implementation-loader/
