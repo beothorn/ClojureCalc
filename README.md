@@ -10,7 +10,7 @@ To install use [ClojureCalc.oxt](https://github.com/beothorn/ClojureCalc/release
 Usage  
 ---------------------
 
-=c( string with a clojure function, without wrapping parenthesis )
+=c( string with a clojure function, without wrapping parenthesis )  
 =clj( string with a clojure expression )  
 =cljcol( cell range to convert to a clojure collection )  
 
