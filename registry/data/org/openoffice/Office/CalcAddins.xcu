@@ -29,6 +29,31 @@
                         </node>
                     </node>
                 </node>
+                <node oor:name="c" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">c</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        Evaluates a clojure expression, automatically wraps the expression with parenthesis
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="exp" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">A clojure expression to be evaluated, ''' (three single quotes) are replaced by a double quote </value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
                 <node oor:name="cljcol" oor:op="replace">
                     <prop oor:name="DisplayName">
                         <value xml:lang="en">cljcol</value>

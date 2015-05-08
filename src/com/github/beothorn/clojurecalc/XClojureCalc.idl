@@ -21,7 +21,7 @@ module com { module github { module beothorn { module clojurecalc {
         [optional] interface ::com::sun::star::lang::XLocalizable;
 
         string clj([in] string exp);
-
+        string c([in] string exp);
         string cljcol([in] sequence< sequence< string > > cells);
     };
 }; }; }; };

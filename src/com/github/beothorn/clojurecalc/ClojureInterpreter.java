@@ -33,7 +33,7 @@ public class ClojureInterpreter {
     }
     
     public static String runClojure(String clojureExpression){
-        if(clojureExpression.equals("")) return "";
+        if(clojureExpression.trim().equals("")) return "";
         String exp = clojureExpression.replaceAll("'''", "\"");
         String result;
         ClassLoader previous = Thread.currentThread().getContextClassLoader();
