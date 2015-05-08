@@ -29,7 +29,7 @@ A1 is #(* % 2)
 =clj("(map "&A1&" [1 2 3])")
 </code></pre>
 
-Fibonacci (usinf def)
+Fibonacci (using def)
 <pre><code>
 =clj("(def fib-seq ((fn rfib [a b] (lazy-seq (cons a (rfib b (+ a b))))) 0 1)) (take 20 fib-seq)")  
 </code></pre>
