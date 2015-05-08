@@ -23,23 +23,23 @@ Note: Three single quotes are replaced by a double quote
 Examples  
 ---------------------
 
-defining functions
+Defining a lambda on a cell
 <pre><code>
 A1 is #(* % 2)
 =clj("(map "&A1&" [1 2 3])")
 </code></pre>
 
-fibonacci
+Fibonacci ()
 <pre><code>
 =clj("(def fib-seq ((fn rfib [a b] (lazy-seq (cons a (rfib b (+ a b))))) 0 1)) (take 20 fib-seq)")  
 </code></pre>
 
-sum of two cells
+Sum two cells
 <pre><code>
 =clj("[(+ "&A1&" "&B1&")]")  
 </code></pre>
 
-escaping double quotes
+Escaping double quotes
 <pre><code>
 =clj("(str '''foo''')")
 </code></pre>
