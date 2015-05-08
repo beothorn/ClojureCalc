@@ -29,12 +29,12 @@ A1 is #(* % 2)
 =clj("(map "&A1&" [1 2 3])")
 </code></pre>
 
-Fibonacci ()
+Fibonacci (usinf def)
 <pre><code>
 =clj("(def fib-seq ((fn rfib [a b] (lazy-seq (cons a (rfib b (+ a b))))) 0 1)) (take 20 fib-seq)")  
 </code></pre>
 
-Sum two cells
+Summing two cells with Libre Office concatenation
 <pre><code>
 =clj("[(+ "&A1&" "&B1&")]")  
 </code></pre>
