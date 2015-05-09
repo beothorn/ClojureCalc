@@ -7,25 +7,54 @@ import java.util.Iterator;
 
 public class ClojureInterpreter {
     
-    public static String toClojureCollection(String[][] javaMatrix){
-        
-        if(javaMatrix.length <= 1){            
-            return getLine(javaMatrix[0]);
-        }else{
+    public static String toClojureCollectionString(String[][] javaMatrix){
+        return toClojureCollection(javaMatrix, "'''", "''''''");
+    }
+    
+    public static String toClojureCollectionNumber(String[][] javaMatrix){
+        return toClojureCollection(javaMatrix, "", "0");
+    }
+
+    private static String toClojureCollection(String[][] javaMatrix, String container, String onEmptyValue) {
+        if(javaMatrix.length == 1 && javaMatrix[0].length == 1){
+            return "["+container+javaMatrix[0][0]+container+"]";
+        }
+        if(javaMatrix[0].length == 1){
             String result = "[";
             for (int i = 0; i < javaMatrix.length; i++) {
-                result += getLine(javaMatrix[i])+" ";
+                final String cellValue = javaMatrix[i][0];
+                if(cellValue.equals("")){
+                    result += onEmptyValue+" ";
+                }else{
+                    result += container+cellValue+container+" ";
+                }
             }
             result = result.substring(0, result.length() - 1);
             result += "]";
             return result;
         }
+        if(javaMatrix.length <= 1){            
+            return getLine(javaMatrix[0], container, onEmptyValue);
+        }else{
+            String result = "[";
+            for (int i = 0; i < javaMatrix.length; i++) {
+                result += getLine(javaMatrix[i], container, onEmptyValue)+" ";
+            }
+            result = (result.length()>1)?result.substring(0, result.length() - 1):result;
+            result += "]";
+            return result;
+        }
     }
 
-    private static String getLine(final String[] line) {
+    private static String getLine(final String[] line, String container, String onEmptyValue) {
         String result = "[";
         for (int i = 0; i < line.length; i++) {
-            result += line[i]+" ";
+            final String cellValue = line[i];
+            if(cellValue.equals("")){
+                result += onEmptyValue+" ";
+            }else{
+                result += container+cellValue+container+" ";
+            }
         }
         result = result.substring(0, result.length() - 1);
         result += "]";

@@ -22,7 +22,8 @@ module com { module github { module beothorn { module clojurecalc {
 
         string clj([in] string exp);
         string c([in] string exp);
-        string cljcol([in] sequence< sequence< string > > cells);
+        string cn([in] sequence< sequence< string > > cells);
+        string cs([in] sequence< sequence< string > > cells);
     };
 }; }; }; };
 

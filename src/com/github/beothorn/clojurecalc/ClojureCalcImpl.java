@@ -84,7 +84,11 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
        return ClojureInterpreter.runClojure("("+exp+")");
    }
    
-   public String cljcol(String[][] cells){
-       return ClojureInterpreter.toClojureCollection(cells);
+   public String cn(String[][] cells){
+       return ClojureInterpreter.toClojureCollectionNumber(cells);
+   }
+   
+   public String cs(String[][] cells){
+       return ClojureInterpreter.toClojureCollectionString(cells);
    }
 }

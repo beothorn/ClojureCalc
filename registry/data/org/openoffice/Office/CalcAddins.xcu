@@ -54,12 +54,37 @@
                         </node>
                     </node>
                 </node>
-                <node oor:name="cljcol" oor:op="replace">
+                <node oor:name="cs" oor:op="replace">
                     <prop oor:name="DisplayName">
-                        <value xml:lang="en">cljcol</value>
+                        <value xml:lang="en">cs</value>
                     </prop>
                     <prop oor:name="Description">
-                        Convert cells into a Clojure collection
+                        Convert cells into a Clojure collection of strings
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="cells" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells to show up on collection</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="cn" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">cn</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        Convert cells into a Clojure numeric collection
                         <value/>
                     </prop>
                     <prop oor:name="Category">
