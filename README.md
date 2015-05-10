@@ -15,8 +15,8 @@ Usage
 =c( string with a clojure function, without wrapping parenthesis )  
 =clj( string with a clojure expression )  
 =cn( cell range to convert to a clojure numeric collection )  
-=cs( cell range to convert to a clojure collection of strings ) 
-=cljtorange( clojure collection; cell text; cell range to fill with values) 
+=cs( cell range to convert to a clojure collection of strings )   
+=cljtorange( clojure collection; cell text; cell range to fill with values)   
 
 Note: Three single quotes are replaced by a double quote
 
