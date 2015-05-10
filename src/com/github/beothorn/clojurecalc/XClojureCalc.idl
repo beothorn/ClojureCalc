@@ -24,6 +24,7 @@ module com { module github { module beothorn { module clojurecalc {
         string c([in] string exp);
         string cn([in] sequence< sequence< string > > cells);
         string cs([in] sequence< sequence< string > > cells);
+        string cljToRange([in] string exp, [in] string title, [in] com::sun::star::table::XCellRange cells);
     };
 }; }; }; };
 

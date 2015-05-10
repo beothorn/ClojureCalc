@@ -1,5 +1,6 @@
 package com.github.beothorn.clojurecalc;
 
+import java.util.List;
 import junit.framework.TestCase;
 import junit.framework.Assert;
 
@@ -41,6 +42,29 @@ public class ClojureInterpreterTests extends TestCase{
         Assert.assertEquals("['''a''' '''b''' '''3''']", clojureCollectionStrings);
     }
 
+    public void testClojureCollectionStringToJavaLists(){
+        assertClojureListToLists("[1 2 3]", "{{1 2 3 } }");
+        assertClojureListToLists("[[1 2 3] [4 5 6]]", "{{1 2 3 } {4 5 6 } }");
+    }
+
+    private void assertClojureListToLists(final String clojureCollection, final String expected) {
+        String asString = listsToString(ClojureInterpreter.fromClojureCollectionStringToList(clojureCollection));
+        Assert.assertEquals(expected, asString);
+    }
+
+    private String listsToString(List<List<String>> lists) {
+        String asString = "{";
+        for (List<String> list : lists) {
+            asString += "{";
+            for (String string : list) {
+                asString += string+" ";
+            }
+            asString += "} ";
+        }
+        asString += "}";
+        return asString;
+    }
+    
     private void runAndAssert(final String exp, final String expected) {
         final String result = ClojureInterpreter.runClojure(exp);
         Assert.assertEquals(expected, result);

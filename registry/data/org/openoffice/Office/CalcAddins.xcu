@@ -104,6 +104,47 @@
                         </node>
                     </node>
                 </node>
+                <node oor:name="cljToRange" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">cljToRange</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        Converts clojure collection to cell range
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="collection" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Collection that will be written on cell range</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="title" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Text to show on this cell</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="cells" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells where the collection will be written</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
             </node>
         </node>
     </node>

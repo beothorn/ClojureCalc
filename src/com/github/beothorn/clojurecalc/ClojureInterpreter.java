@@ -3,7 +3,10 @@ package com.github.beothorn.clojurecalc;
 import clojure.java.api.Clojure;
 import clojure.lang.IFn;
 import clojure.lang.LazySeq;
+import clojure.lang.PersistentVector;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ClojureInterpreter {
     
@@ -97,5 +100,71 @@ public class ClojureInterpreter {
             result = str.invoke(evalResult).toString();
         }
         return result;
+    }
+
+    static List<List<String>> fromClojureCollectionStringToList(String cljColString) {
+        ClassLoader previous = Thread.currentThread().getContextClassLoader();
+        final ClassLoader parentClassLoader = ClojureCalcImpl.class.getClassLoader();
+        Thread.currentThread().setContextClassLoader(parentClassLoader);
+        try {
+            return internalFromClojureCollectionStringToList(cljColString);
+        }catch(Exception e){  
+            List<List<String>> x = new ArrayList<List<String>>();
+            final ArrayList<String> message = new ArrayList<String>();
+            message.add(e.getMessage());
+            x.add(message);
+            return x;
+        } finally {
+            Thread.currentThread().setContextClassLoader(previous);
+        }
+    }
+
+    private static List<List<String>> internalFromClojureCollectionStringToList(String cljColString) {
+        final IFn eval = Clojure.var("clojure.core", "load-string");
+        Object evalResult = eval.invoke(cljColString);
+        IFn str = Clojure.var("clojure.core", "str");
+        if(!(evalResult instanceof PersistentVector)){
+            return new ArrayList<List<String>>();
+        }
+        
+        final Object[] array = ((PersistentVector) evalResult).toArray();
+        if(array.length == 0){
+            return new ArrayList<List<String>>();
+        }
+        
+        if(array[0] instanceof PersistentVector){ //we assume it's a list of lists
+            final ArrayList<List<String>> collectionElements = new ArrayList<List<String>>();
+            for (int i = 0; i < array.length; i++) {
+                if(array[i] instanceof PersistentVector){
+                    ArrayList<String> line = new ArrayList<String>();
+                    final Object[] subArray = ((PersistentVector) array[i]).toArray();
+                    for (int j = 0; j < subArray.length; j++) {
+                        line.add(subArray[j].toString());
+                    }
+                    collectionElements.add(line);
+                }else{
+                    ArrayList<String> line = new ArrayList<String>();
+                    line.add(array[i].toString());
+                    collectionElements.add(line);
+                }
+            }
+
+            return collectionElements;
+        }else{
+            final ArrayList<List<String>> collectionElements = new ArrayList<List<String>>();
+            ArrayList<String> line = new ArrayList<String>();
+            for (int i = 0; i < array.length; i++) {
+                if(array[i] instanceof PersistentVector){
+                    final Object[] subArray = ((PersistentVector) evalResult).toArray();
+
+                }else{
+                    line.add(array[i].toString());
+                }
+            }
+
+            collectionElements.add(line);
+
+            return collectionElements;
+        }
     }
 }

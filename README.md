@@ -5,7 +5,7 @@ Combine the power of clojure with all the LibreOffice calc features!!!
 
 ClojureCalc is a wrapper for clojure 1.6 on libre office and possibly open office.  
 
-[Download v2.0.0](https://github.com/beothorn/ClojureCalc/releases/download/2.0.0/ClojureCalc.oxt)
+[Download v2.1.0](https://github.com/beothorn/ClojureCalc/releases/download/2.1.0/ClojureCalc.oxt)
 =============
 
 
@@ -15,11 +15,12 @@ Usage
 =c( string with a clojure function, without wrapping parenthesis )  
 =clj( string with a clojure expression )  
 =cn( cell range to convert to a clojure numeric collection )  
-=cs( cell range to convert to a clojure collection of strings )  
+=cs( cell range to convert to a clojure collection of strings ) 
+=cljtorange( clojure collection; cell text; cell range to fill with values) 
 
 Note: Three single quotes are replaced by a double quote
 
-![screenshot](http://i.imgur.com/FNga1Az.png "Really cool example")
+![screenshot](http://i.imgur.com/FzeLwJg.png "Really cool example")
 
 Examples  
 ---------------------

@@ -1,12 +1,17 @@
 package com.github.beothorn.clojurecalc;
 
+import com.sun.star.lang.IndexOutOfBoundsException;
 import com.sun.star.lang.XLocalizable;
 import com.sun.star.lang.XServiceInfo;
 import com.sun.star.lang.XSingleComponentFactory;
 import com.sun.star.lib.uno.helper.Factory;
 import com.sun.star.lib.uno.helper.WeakBase;
 import com.sun.star.registry.XRegistryKey;
+import com.sun.star.table.XCellRange;
 import com.sun.star.uno.XComponentContext;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocalizable, XClojureCalc{
     
@@ -30,20 +35,7 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
     public static boolean __writeRegistryServiceInfo(XRegistryKey xRegistryKey ) {
         return Factory.writeRegistryServiceInfo(m_implementationName, m_serviceNames, xRegistryKey);
     }
- 
-    // org.openoffice.addin.XTestAddin:
-    public int redouble(int nValue)
-    {
-        // TODO !!!
-        // Exchange the default return implementation.
-        // NOTE: Default initialized polymorphic structs can cause problems
-        // because of missing default initialization of primitive types of
-        // some C++ compilers or different Any initialization in Java and C++
-        // polymorphic structs.
-        return 0;
-    }
- 
-    // com.sun.star.lang.XServiceInfo:
+
     public String getImplementationName() {
          return m_implementationName;
     }
@@ -85,10 +77,36 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
    }
    
    public String cn(String[][] cells){
-       return ClojureInterpreter.toClojureCollectionNumber(cells);
+       try{
+            return ClojureInterpreter.toClojureCollectionNumber(cells);
+       }catch(Exception e){
+           return  e.getMessage();
+       }
    }
    
    public String cs(String[][] cells){
-       return ClojureInterpreter.toClojureCollectionString(cells);
+        try{
+            return ClojureInterpreter.toClojureCollectionString(cells);
+        }catch(Exception e){
+            return e.getMessage();
+        }
+   }
+   
+   public String cljToRange(String collection, String title, XCellRange cells){
+        try {
+            final List<List<String>> listOfListsOfValues = ClojureInterpreter.fromClojureCollectionStringToList(collection);
+            for (int lineIndex = 0; lineIndex < listOfListsOfValues.size(); lineIndex++) {
+                final List<String> line = listOfListsOfValues.get(lineIndex);
+                for (int column = 0; column < line.size(); column++) {
+                    final String value = line.get(column);
+                    cells.getCellByPosition(column, lineIndex).setFormula(value);
+                }
+            }
+            return title;
+        } catch (IndexOutOfBoundsException ex) {
+            return "Cell Range is too small for values";
+        } catch (Exception e){
+            return e.getMessage();
+        }
    }
 }
