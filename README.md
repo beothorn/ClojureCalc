@@ -5,46 +5,63 @@ Combine the power of clojure with all the LibreOffice calc features!!!
 
 ClojureCalc is a wrapper for clojure 1.6 on libre office and possibly open office.  
 
-[Download v2.1.0](https://github.com/beothorn/ClojureCalc/releases/download/2.1.0/ClojureCalc.oxt)
-=============
+[Download v3.3.0](https://github.com/beothorn/ClojureCalc/releases/download/3.0.0/ClojureCalc.oxt)
+====================
 
 
 Usage  
+====================
+
+Functions available  
+--------------------
+
+cljEval([expression])  
+cljs([expression];{[cell...]|[cell range ...]})  
+cljn([expression];{[cell...]|[cell range ...]})  
+cljToRange([expression];[cell text];[cell range])  
+
+
+A simple instruction  
 ---------------------
 
-=c( string with a clojure function, without wrapping parenthesis )  
-=clj( string with a clojure expression )  
-=cn( cell range to convert to a clojure numeric collection )  
-=cs( cell range to convert to a clojure collection of strings )   
-=cljtorange( clojure collection; cell text; cell range to fill with values)   
+To run a clojure expression just call cljeval  
+Example:
+Sum of two numbers  
+=CLJEVAL("(+ 1 2)")  
 
-Note: Three single quotes are replaced by a double quote
-
-![screenshot](http://i.imgur.com/FzeLwJg.png "Really cool example")
-
-Examples  
+Using values from other cells or cell range
 ---------------------
 
-Defining a lambda on a cell
-<pre><code>
-A1 is #(* % 2)
-=clj("(map "&A1&" [1 2 3])")
-</code></pre>
+Cells can be interpreted as strings or numbers.  
+If you want the cells to be interpeted as strings use cljs, or if you need it to be interpreted as numbers use cljn.  
+Cljs and Cljn automatically wraps the expresion with parenthesis.  
+Cells and cell ranges are replaced on the string using a map formatter.  
+If you need to add a String literal, use ''' in place of " .  
+Examples:  
+Sum of three cells:  
+=CLJN("+ {0} {1} {3}";A1;B1;C1)  
 
-Fibonacci (using def)
-<pre><code>
-=clj("(def fib-seq ((fn rfib [a b] (lazy-seq (cons a (rfib b (+ a b))))) 0 1)) (take 20 fib-seq)")  
-</code></pre>
+Using reduce on a cell range:  
+=CLJN("reduce + {0}";A1:B1)  
 
-Summing two cells with Libre Office concatenation
-<pre><code>
-=clj("[(+ "&A1&" "&B1&")]")  
-</code></pre>
+Join cell range with underscore:  
+=CLJS("reduce #(str %1 '''_''' %2) {0}";A1:C1)  
 
-Escaping double quotes
-<pre><code>
-=clj("(str '''foo''')")
-</code></pre>
+Write collection to cell range
+---------------------
+
+You can write the output of an expression to a cell range using cljToRange.  
+CljToRange works with arrays and matrices  
+Ex:  
+Writing a collection to three cells A1, A2 and A3:  
+=CLJTORANGE("[1 2 3]";"CellText";A1:C1)  
+
+Writing to a cell matrix:  
+=CLJTORANGE("[[1 2 3][4 5 6]]";"CellText";A1:C2)  
+
+Using the value of a cell as the colletion:  
+=CLJTORANGE(A6;"Another cell text";A1:C2)  
+
 
 Common issues
 ---------------------
