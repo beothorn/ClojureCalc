@@ -16,7 +16,9 @@
       
         <!-- set variablers from SDK and Office -->
         <echo message="setting up UNO environment ..."/>
+        <echo message="office.unopkg = ${office.program.dir}${file.separator}unopkg"/>
         <property name="office.unopkg" value="${office.program.dir}${file.separator}unopkg"/>
+        <echo message="office.soffice = ${office.program.dir}${file.separator}soffice"/>
         <property name="office.soffice" value="${office.program.dir}${file.separator}soffice"/>
         
         <property name="sdk.idl.dir" location="${oo.sdk.dir}${file.separator}idl"/> 
@@ -33,6 +35,7 @@
         <property name="idl.out.urd" value="${idl.out}/urd"/>
         <property name="idl.out.rdb" value="${idl.out}/rdb"/>
         <property name="idl.rdb.name" value="types.rdb"/>
+        <echo message="idl.rdb.fullpath = ${idl.out.rdb}/${idl.rdb.name}"/>
         <property name="idl.rdb.fullpath" value="${idl.out.rdb}/${idl.rdb.name}"/>
         
         <property name="images.base.dir" value="${build.dir}/img"/>
@@ -134,12 +137,15 @@
     <!-- generate Java class files from type library: execution -->
     <target name="-uno-idl-javamaker" depends="-uno-idl-regmerge,-uno-idl-idlc-condition,-uno-idl-javamaker-condition" if="javamaker.Required" unless="idlc.notRequired">
         <echo message="generating java class files from rdb..."/>
+        <echo message="${idl.classes.dir} ${idl.rdb.fullpath} ${oo.unotypes.rdb} ${oo.offapi.rdb} "/>
+        <echo message="idl.rdb.fullpath ${idl.rdb.fullpath}"/>
         <exec executable="${sdk.javamaker}" dir="${office.program.dir}" failonerror="true">
             <env key="PATH" path="${office.tool.path}"/>                
             <env key="LD_LIBRARY_PATH" path="${office.tool.path}"/>
             <env key="DYLD_LIBRARY_PATH" path="${office.tool.path}"/> 
             <arg value="-O"/>
             <arg value="${idl.classes.dir}"/>
+            <arg value="/usr/lib/libreoffice/program/types/offapi.rdb" />
             <arg file="${idl.rdb.fullpath}"/>
             <arg value="${oo.unotypes.rdb}"/> <!-- from ConfigurationSettings -->
             <arg value="${oo.offapi.rdb}"/> <!-- from ConfigurationSettings -->

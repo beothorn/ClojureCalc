@@ -8,6 +8,7 @@ import com.sun.star.lib.uno.helper.Factory;
 import com.sun.star.lib.uno.helper.WeakBase;
 import com.sun.star.registry.XRegistryKey;
 import com.sun.star.table.XCellRange;
+import com.sun.star.uno.Any;
 import com.sun.star.uno.XComponentContext;
 import java.util.List;
 import java.util.logging.Level;
@@ -65,7 +66,7 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
         return m_locale;
     }
     
-   public String clj(String exp)
+   public String cljEval(String exp)
    {
        return ClojureInterpreter.runClojure(exp);
    }
@@ -76,20 +77,41 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
        return ClojureInterpreter.runClojure("("+exp+")");
    }
    
-   public String cn(String[][] cells){
-       try{
-            return ClojureInterpreter.toClojureCollectionNumber(cells);
-       }catch(Exception e){
-           return  e.getMessage();
+   public String cljn(String exp, Object[] any)
+   {
+       if(exp.trim().equals("")) return "";
+       String result = exp;
+       for (int i = 0; i < any.length; i++) {
+           String replaceValue = "ERROR";
+           if(any[i] instanceof Double){
+               replaceValue = any[i].toString();
+           }
+           if(any[i] instanceof String){
+               return "ERROR: Value is not a number at "+i;
+           }
+           if(any[i] instanceof Object[][]){
+               replaceValue = ClojureInterpreter.toClojureCollectionNumber((Object[][])any[i]);
+           }
+           result = result.replaceAll("\\{"+i+"\\}", replaceValue);
        }
+       return c(result);
    }
    
-   public String cs(String[][] cells){
-        try{
-            return ClojureInterpreter.toClojureCollectionString(cells);
-        }catch(Exception e){
-            return e.getMessage();
-        }
+   public String cljs(String exp, Object[] any)
+   {
+       if(exp.trim().equals("")) return "";
+       String result = exp;
+       for (int i = 0; i < any.length; i++) {
+           String replaceValue = "ERROR: Unknown type at "+i;
+           if(any[i] instanceof Double || any[i] instanceof String){
+               replaceValue = "'''"+any[i]+"'''";
+           }
+           if(any[i] instanceof Object[][]){
+               replaceValue = ClojureInterpreter.toClojureCollectionString((Object[][])any[i]);
+           }
+           result = result.replaceAll("\\{"+i+"\\}", replaceValue);
+       }
+       return c(result);
    }
    
    public String cljToRange(String collection, String title, XCellRange cells){

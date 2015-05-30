@@ -20,10 +20,9 @@ module com { module github { module beothorn { module clojurecalc {
         /// used to set an add-in locale for formatting reasons for example
         [optional] interface ::com::sun::star::lang::XLocalizable;
 
-        string clj([in] string exp);
-        string c([in] string exp);
-        string cn([in] sequence< sequence< string > > cells);
-        string cs([in] sequence< sequence< string > > cells);
+        string cljEval([in] string exp);
+        string cljs([in] string exp, [in] sequence<any> substituteVals);
+        string cljn([in] string exp, [in] sequence<any> substituteVals);
         string cljToRange([in] string exp, [in] string title, [in] com::sun::star::table::XCellRange cells);
     };
 }; }; }; };

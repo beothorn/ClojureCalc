@@ -10,22 +10,22 @@ import java.util.List;
 
 public class ClojureInterpreter {
     
-    public static String toClojureCollectionString(String[][] javaMatrix){
+    public static String toClojureCollectionString(Object[][] javaMatrix){
         return toClojureCollection(javaMatrix, "'''", "''''''");
     }
     
-    public static String toClojureCollectionNumber(String[][] javaMatrix){
+    public static String toClojureCollectionNumber(Object[][] javaMatrix){
         return toClojureCollection(javaMatrix, "", "0");
     }
 
-    private static String toClojureCollection(String[][] javaMatrix, String container, String onEmptyValue) {
+    private static String toClojureCollection(Object[][] javaMatrix, String container, String onEmptyValue) {
         if(javaMatrix.length == 1 && javaMatrix[0].length == 1){
             return "["+container+javaMatrix[0][0]+container+"]";
         }
         if(javaMatrix[0].length == 1){
             String result = "[";
             for (int i = 0; i < javaMatrix.length; i++) {
-                final String cellValue = javaMatrix[i][0];
+                final String cellValue = javaMatrix[i][0].toString();
                 if(cellValue.equals("")){
                     result += onEmptyValue+" ";
                 }else{
@@ -49,10 +49,10 @@ public class ClojureInterpreter {
         }
     }
 
-    private static String getLine(final String[] line, String container, String onEmptyValue) {
+    private static String getLine(final Object[] line, String container, String onEmptyValue) {
         String result = "[";
         for (int i = 0; i < line.length; i++) {
-            final String cellValue = line[i];
+            final String cellValue = line[i].toString();
             if(cellValue.equals("")){
                 result += onEmptyValue+" ";
             }else{
@@ -92,7 +92,14 @@ public class ClojureInterpreter {
             result = "[";
             for (Iterator it = resultCollection.iterator(); it.hasNext();) {
                 Object object = it.next();
-                result += str.invoke(object).toString()+" ";
+                if(object instanceof String){
+                    result += "'''"+str.invoke(object).toString()+"''' ";
+                }else{
+                    result += str.invoke(object).toString()+" ";
+                }
+            }
+            if(result.equals("[")){
+                return "[]";
             }
             result = result.substring(0, result.length() - 1);
             result += "]";
@@ -120,8 +127,9 @@ public class ClojureInterpreter {
     }
 
     private static List<List<String>> internalFromClojureCollectionStringToList(String cljColString) {
+        String exp = cljColString.replaceAll("'''", "\"");
         final IFn eval = Clojure.var("clojure.core", "load-string");
-        Object evalResult = eval.invoke(cljColString);
+        Object evalResult = eval.invoke(exp);
         IFn str = Clojure.var("clojure.core", "str");
         if(!(evalResult instanceof PersistentVector)){
             return new ArrayList<List<String>>();

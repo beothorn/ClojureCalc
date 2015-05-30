@@ -1,0 +1,2 @@
+Combine the power of clojure with all the LibreOffice calc features!!!
+ClojureCalc is a wrapper for clojure on libre office.

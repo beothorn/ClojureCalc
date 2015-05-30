@@ -4,9 +4,102 @@
     <node oor:name="AddInInfo">
         <node oor:name="com.github.beothorn.clojurecalc.ClojureCalc" oor:op="replace">
             <node oor:name="AddInFunctions">
-                <node oor:name="clj" oor:op="replace">
+                
+                <node oor:name="cljs" oor:op="replace">
                     <prop oor:name="DisplayName">
-                        <value xml:lang="en">clj</value>
+                        <value xml:lang="en">cljs</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value>Evaluates a clojure expression, cell as string</value>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        
+                        <node oor:name="exp" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Clojure Expression</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    A clojure expression to be evaluated, 
+                                    the expression can be formatted using tokens.
+                                    Ex: cljs("+ {0} {1} {2}";A1;B1;C1)
+                                    ''' (three single quotes) are replaced by a double quote 
+                                </value>
+                            </prop>
+                        </node>
+                        
+                        <node oor:name="substituteVals" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells or/and cell ranges</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    The cells to replace the token values,
+                                    these will be interpreted as Strings
+                                </value>
+                            </prop>
+                        </node>
+                        
+                    </node>
+                    
+                </node>
+                
+                
+                <node oor:name="cljn" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">cljn</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value>Evaluates a clojure expression, cell as doubles</value>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        
+                        <node oor:name="exp" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Clojure Expression</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    A clojure expression to be evaluated, 
+                                    the expression can be formatted using tokens.
+                                    Ex: cljs("+ {0} {1} {2}";A1;B1;C1)
+                                    ''' (three single quotes) are replaced by a double quote 
+                                </value>
+                            </prop>
+                        </node>
+                        
+                        <node oor:name="substituteVals" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells or/and cell ranges</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    The cells to replace the token values,
+                                    these will be interpreted as Doubles
+                                </value>
+                            </prop>
+                        </node>
+                        
+                    </node>
+                    
+                </node>
+                
+                
+                <node oor:name="cljEval" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">cljEval</value>
                     </prop>
                     <prop oor:name="Description">
                         Evaluates a clojure expression
@@ -21,96 +114,27 @@
                     <node oor:name="Parameters">
                         <node oor:name="exp" oor:op="replace">
                             <prop oor:name="DisplayName">
-                                <value xml:lang="en">A clojure expression to be evaluated, ''' (three single quotes) are replaced by a double quote </value>
+                                <value xml:lang="en">
+                                    A clojure expression to be evaluated, 
+                                    ''' (three single quotes) are replaced by a double quote 
+                                </value>
                             </prop>
                             <prop oor:name="Description">
-                                <value/>
+                                <value xml:lang="en">
+                                    A clojure expression to be evaluated, 
+                                    ''' (three single quotes) are replaced by a double quote 
+                                </value>
                             </prop>
                         </node>
                     </node>
                 </node>
-                <node oor:name="c" oor:op="replace">
-                    <prop oor:name="DisplayName">
-                        <value xml:lang="en">c</value>
-                    </prop>
-                    <prop oor:name="Description">
-                        Evaluates a clojure expression, automatically wraps the expression with parenthesis
-                        <value/>
-                    </prop>
-                    <prop oor:name="Category">
-                        <value>Add-In</value>
-                    </prop>
-                    <prop oor:name="CompatibilityName">
-                        <value/>
-                    </prop>
-                    <node oor:name="Parameters">
-                        <node oor:name="exp" oor:op="replace">
-                            <prop oor:name="DisplayName">
-                                <value xml:lang="en">A clojure expression to be evaluated, ''' (three single quotes) are replaced by a double quote </value>
-                            </prop>
-                            <prop oor:name="Description">
-                                <value/>
-                            </prop>
-                        </node>
-                    </node>
-                </node>
-                <node oor:name="cs" oor:op="replace">
-                    <prop oor:name="DisplayName">
-                        <value xml:lang="en">cs</value>
-                    </prop>
-                    <prop oor:name="Description">
-                        Convert cells into a Clojure collection of strings
-                        <value/>
-                    </prop>
-                    <prop oor:name="Category">
-                        <value>Add-In</value>
-                    </prop>
-                    <prop oor:name="CompatibilityName">
-                        <value/>
-                    </prop>
-                    <node oor:name="Parameters">
-                        <node oor:name="cells" oor:op="replace">
-                            <prop oor:name="DisplayName">
-                                <value xml:lang="en">Cells to show up on collection</value>
-                            </prop>
-                            <prop oor:name="Description">
-                                <value/>
-                            </prop>
-                        </node>
-                    </node>
-                </node>
-                <node oor:name="cn" oor:op="replace">
-                    <prop oor:name="DisplayName">
-                        <value xml:lang="en">cn</value>
-                    </prop>
-                    <prop oor:name="Description">
-                        Convert cells into a Clojure numeric collection
-                        <value/>
-                    </prop>
-                    <prop oor:name="Category">
-                        <value>Add-In</value>
-                    </prop>
-                    <prop oor:name="CompatibilityName">
-                        <value/>
-                    </prop>
-                    <node oor:name="Parameters">
-                        <node oor:name="cells" oor:op="replace">
-                            <prop oor:name="DisplayName">
-                                <value xml:lang="en">Cells to show up on collection</value>
-                            </prop>
-                            <prop oor:name="Description">
-                                <value/>
-                            </prop>
-                        </node>
-                    </node>
-                </node>
+                
                 <node oor:name="cljToRange" oor:op="replace">
                     <prop oor:name="DisplayName">
                         <value xml:lang="en">cljToRange</value>
                     </prop>
                     <prop oor:name="Description">
-                        Converts clojure collection to cell range
-                        <value/>
+                        <value>Write clojure collection to cell range</value>
                     </prop>
                     <prop oor:name="Category">
                         <value>Add-In</value>
@@ -121,7 +145,7 @@
                     <node oor:name="Parameters">
                         <node oor:name="collection" oor:op="replace">
                             <prop oor:name="DisplayName">
-                                <value xml:lang="en">Collection that will be written on cell range</value>
+                                <value xml:lang="en">Collection</value>
                             </prop>
                             <prop oor:name="Description">
                                 <value/>
@@ -129,7 +153,7 @@
                         </node>
                         <node oor:name="title" oor:op="replace">
                             <prop oor:name="DisplayName">
-                                <value xml:lang="en">Text to show on this cell</value>
+                                <value xml:lang="en">This cell text</value>
                             </prop>
                             <prop oor:name="Description">
                                 <value/>
@@ -137,7 +161,7 @@
                         </node>
                         <node oor:name="cells" oor:op="replace">
                             <prop oor:name="DisplayName">
-                                <value xml:lang="en">Cells where the collection will be written</value>
+                                <value xml:lang="en">Cell range</value>
                             </prop>
                             <prop oor:name="Description">
                                 <value/>
@@ -145,6 +169,7 @@
                         </node>
                     </node>
                 </node>
+                
             </node>
         </node>
     </node>
