@@ -11,6 +11,6 @@
     </publisher>
     
     <icon>
-        <default xlink:href="icon.png" />
+        <default xlink:href="images/icon.png" />
     </icon>
 </description>
