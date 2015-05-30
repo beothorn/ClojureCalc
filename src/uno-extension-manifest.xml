@@ -6,6 +6,8 @@
                        manifest:full-path="ClojureCalc.jar"/>
   <manifest:file-entry manifest:media-type="application/vnd.sun.star.uno-typelibrary;type=Java"
                        manifest:full-path="ClojureCalc_IDL_types.jar"/>
+  <manifest:file-entry manifest:media-type="application/vnd.sun.star.package-bundle-description"
+                       manifest:full-path="description/description.txt"/>
   <manifest:file-entry manifest:media-type="application/vnd.sun.star.configuration-data"
                        manifest:full-path="registry/data/org/openoffice/Office/CalcAddins.xcu"/>
 </manifest:manifest>
