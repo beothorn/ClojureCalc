@@ -1,5 +1,7 @@
 ClojureCalc
 ====================
+![screenshot](http://i.imgur.com/KddlWBL.png "ClojureCalc")
+
 Combine the power of clojure with all the LibreOffice calc features!!!  
 ---------------------
 
@@ -25,7 +27,7 @@ A simple instruction
 ---------------------
 
 To run a clojure expression just call cljeval  
-Example:
+Example:  
 Sum of two numbers  
 =CLJEVAL("(+ 1 2)")  
 
@@ -52,7 +54,7 @@ Write collection to cell range
 
 You can write the output of an expression to a cell range using cljToRange.  
 CljToRange works with arrays and matrices  
-Ex:  
+Examples:  
 Writing a collection to three cells A1, A2 and A3:  
 =CLJTORANGE("[1 2 3]";"CellText";A1:C1)  
 
