@@ -1,6 +1,6 @@
 ClojureCalc
 ====================
-![screenshot](http://i.imgur.com/naFr3pS.png "ClojureCalc")
+![screenshot](http://i.imgur.com/s0ySCwL.png "ClojureCalc")
 
 Combine the power of clojure with all the LibreOffice calc features!!!  
 ---------------------
