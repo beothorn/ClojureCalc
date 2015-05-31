@@ -7,7 +7,7 @@ Combine the power of clojure with all the LibreOffice calc features!!!
 
 ClojureCalc is a wrapper for clojure 1.6 on libre office and possibly open office.  
 
-[Download v3.3.0](https://github.com/beothorn/ClojureCalc/releases/download/3.0.0/ClojureCalc.oxt)
+[Download v3.0.0](https://github.com/beothorn/ClojureCalc/releases/download/3.0.0/ClojureCalc.oxt)
 ====================
 
 
