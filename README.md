@@ -7,7 +7,7 @@ Combine the power of clojure with all the LibreOffice calc features!!!
 
 ClojureCalc is a wrapper for clojure 1.6 on libre office and possibly open office.  
 
-[Download v3.0.0](https://github.com/beothorn/ClojureCalc/releases/download/3.0.0/ClojureCalc.oxt)
+[Download v3.1.0](https://github.com/beothorn/ClojureCalc/releases/download/3.1.0/ClojureCalc.oxt)
 ====================
 
 ![screenshot](http://i.imgur.com/JeGaBs4.png "ClojureCalc")
@@ -18,7 +18,7 @@ Usage
 Functions available  
 --------------------
 
-cljEval([expression])  
+cljEval([expression];{[cell...]|[cell range ...]})  
 cljs([expression];{[cell...]|[cell range ...]})  
 cljn([expression];{[cell...]|[cell range ...]})  
 cljToRange([expression];[cell text];[cell range])  
@@ -31,6 +31,8 @@ To run a clojure expression just call cljeval
 Example:  
 Sum of two numbers  
 =CLJEVAL("(+ 1 2)")  
+or with arguments  
+=CLJEVAL("(+ {0} {1})";A1;A2)  
 
 Using values from other cells or cell range
 ---------------------
@@ -64,6 +66,11 @@ Writing to a cell matrix:
 
 Using the value of a cell as the colletion:  
 =CLJTORANGE(A6;"Another cell text";A1:C2)  
+
+Formatting a string  
+---------------------  
+As a bonus you can format a string with arguments using strfmt:  
+=strfmt("Hello {0}";A1)  
 
 
 Common issues
