@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/com/github/beothorn/clojurecalc/XClojureCalc.idl</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/com/github/beothorn/clojurecalc/ClojureCalc.idl</file>
+            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/com/github/beothorn/clojurecalc/CentralRegistrationClass.java</file>
             <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/com/github/beothorn/clojurecalc/ClojureInterpreter.java</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/nbproject/build-uno-impl.xml</file>
             <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/com/github/beothorn/clojurecalc/ClojureCalcImpl.java</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/uno-extension-manifest.xml</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/src/description.xml</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/registry/data/org/openoffice/Office/CalcAddins.xcu</file>
-            <file>file:/home/lucas/dev/clojurecalc/ClojureCalc/test/com/github/beothorn/clojurecalc/ClojureInterpreterTests.java</file>
         </group>
     </open-files>
 </project-private>

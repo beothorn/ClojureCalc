@@ -63,15 +63,21 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
         return m_locale;
     }
     
-   public String cljEval(String exp)
+   public String cljEval(String exp, Object[] any)
    {
-       return ClojureInterpreter.runClojure(exp);
+       return ClojureInterpreter.runClojure(StringFormatter.format(exp, any));
    }
    
    public String c(String exp)
    {
        if(exp.trim().equals("")) return "";
        return ClojureInterpreter.runClojure("("+exp+")");
+   }
+   
+   public String strfmt(String exp, Object[] any)
+   {
+       if(exp.trim().equals("")) return "";
+       return StringFormatter.format(exp, any);
    }
    
    public String cljn(String exp, Object[] any)
@@ -89,10 +95,11 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
            if(any[i] instanceof Object[][]){
                replaceValue = ClojureInterpreter.toClojureCollectionNumber((Object[][])any[i]);
            }
-           result = result.replaceAll("\\{"+i+"\\}", replaceValue);
+           result = StringFormatter.replaceToken(result, i, replaceValue);
        }
        return c(result);
    }
+
    
    public String cljs(String exp, Object[] any)
    {
@@ -106,7 +113,7 @@ public class ClojureCalcImpl extends WeakBase implements XServiceInfo, XLocaliza
            if(any[i] instanceof Object[][]){
                replaceValue = ClojureInterpreter.toClojureCollectionString((Object[][])any[i]);
            }
-           result = result.replaceAll("\\{"+i+"\\}", replaceValue);
+           result = StringFormatter.replaceToken(result, i, replaceValue);
        }
        return c(result);
    }

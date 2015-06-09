@@ -46,7 +46,7 @@ public class ClojureInterpreterTests extends TestCase{
         assertClojureListToLists("[1 2 3]", "{{1 2 3 } }");
         assertClojureListToLists("[[1 2 3] [4 5 6]]", "{{1 2 3 } {4 5 6 } }");
     }
-
+   
     private void assertClojureListToLists(final String clojureCollection, final String expected) {
         String asString = listsToString(ClojureInterpreter.fromClojureCollectionStringToList(clojureCollection));
         Assert.assertEquals(expected, asString);

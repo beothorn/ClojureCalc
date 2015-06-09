@@ -1,2 +1,8 @@
 Combine the power of clojure with all the LibreOffice calc features!!!
 ClojureCalc is a wrapper for clojure on libre office.
+This Addin adds the following funtions:
+strfmt
+cljEval
+cljs
+cljn
+cljToRange

@@ -126,6 +126,19 @@
                                 </value>
                             </prop>
                         </node>
+                        
+                        <node oor:name="substituteVals" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells or/and cell ranges</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    The cells to replace the token values,
+                                    ranges will be space separated
+                                </value>
+                            </prop>
+                        </node>
+                        
                     </node>
                 </node>
                 
@@ -170,6 +183,50 @@
                     </node>
                 </node>
                 
+                <node oor:name="strfmt" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="en">strfmt</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value>Uses cells to format a string</value>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        
+                        <node oor:name="str" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">A string with tokens</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    A string to be formatted using tokens.
+                                    Ex: strfmt("{0} is greater than {1} ";A1;B1)
+                                </value>
+                            </prop>
+                        </node>
+                        
+                        <node oor:name="substituteVals" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="en">Cells or/and cell ranges</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value xml:lang="en">
+                                    The cells to replace the token values,
+                                    ranges will be space separated
+                                </value>
+                            </prop>
+                        </node>
+                        
+                    </node>
+                    
+                </node>
+                
+                                
             </node>
         </node>
     </node>
