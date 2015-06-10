@@ -4,7 +4,8 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'> -->
+    <link href='http://fonts.googleapis.com/css?family=Lato|Old+Standard+TT' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
@@ -20,8 +21,8 @@
     <header>
       <div class="inner">
         <h1>Clojurecalc</h1>
-	<h2><img src="http://i.imgur.com/naFr3pS.png" alt="screenshot" title="ClojureCalc">
-        A libreoffice Calc Add-In to evaluate clojure expressions</h2>
+	<h2><img src="http://i.imgur.com/s0ySCwL.png" alt="screenshot" title="ClojureCalc">
+        <span class="subHeader">A libreoffice Calc Add-In to evaluate clojure expressions</span></h2>
         <a href="https://github.com/beothorn/ClojureCalc" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
@@ -39,7 +40,7 @@
 <p>ClojureCalc is a wrapper for clojure 1.6 on libre office and possibly open office.  </p>
 
 <h1>
-<a id="download-v330" class="anchor" href="#download-v330" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/beothorn/ClojureCalc/releases/download/3.0.0/ClojureCalc.oxt">Download v3.3.0</a>
+<a id="download-v330" class="anchor" href="#download-v330" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/beothorn/ClojureCalc/releases/download/3.1.0/ClojureCalc.oxt">Download v3.1.0</a>
 </h1>
 
 <h1>
@@ -51,7 +52,8 @@
 <p>cljEval([expression])<br>
 cljs([expression];{[cell...]|[cell range ...]})<br>
 cljn([expression];{[cell...]|[cell range ...]})<br>
-cljToRange([expression];[cell text];[cell range])  </p>
+cljToRange([expression];[cell text];[cell range])<br>
+strfmt([string];[cell ...];[cell range])  </p>
 
 <h2>
 <a id="a-simple-instruction--" class="anchor" href="#a-simple-instruction--" aria-hidden="true"><span class="octicon octicon-link"></span></a>A simple instruction  </h2>
@@ -59,7 +61,9 @@ cljToRange([expression];[cell text];[cell range])  </p>
 <p>To run a clojure expression just call cljeval<br>
 Example:<br>
 Sum of two numbers<br>
-=CLJEVAL("(+ 1 2)")  </p>
+=CLJEVAL("(+ 1 2)")<br>
+or with arguments<br>
+=CLJEVAL("(+ {0} {1})";A1;A2)</p>
 
 <h2>
 <a id="using-values-from-other-cells-or-cell-range" class="anchor" href="#using-values-from-other-cells-or-cell-range" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using values from other cells or cell range</h2>
@@ -93,6 +97,13 @@ Writing a collection to three cells A1, A2 and A3:<br>
 
 <p>Using the value of a cell as the colletion:<br>
 =CLJTORANGE(A6;"Another cell text";A1:C2)  </p>
+
+<h2>
+<a id="write-collection-to-cell-range" class="anchor" href="#write-collection-to-cell-range" aria-hidden="true"><span class="octicon octicon-link"></span></a>Formatting a string</h2>
+
+<p>As a bonus you can format a string with arguments using strfmt:<br>
+=strfmt("Hello {0}";A1)</p>
+
 
 <h2>
 <a id="common-issues" class="anchor" href="#common-issues" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common issues</h2>
