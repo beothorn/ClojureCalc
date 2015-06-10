@@ -22,6 +22,7 @@ cljEval([expression];{[cell...]|[cell range ...]})
 cljs([expression];{[cell...]|[cell range ...]})  
 cljn([expression];{[cell...]|[cell range ...]})  
 cljToRange([expression];[cell text];[cell range])  
+strfmt([string];[cell ...];[cell range])   
 
 
 A simple instruction  
